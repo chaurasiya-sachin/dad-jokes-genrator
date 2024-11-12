@@ -1,26 +1,30 @@
 let joke_button = document.querySelector(".main button");
-let joke = document.querySelector('#joke-display');
-// joke.innerHTML="hello world";
-async function genrateJoke(params) {
-    const header ={
-        headers:{
-            'X-Api=Key':'LWmlLtnkcrKI6BsFlsmLRg==Z9EGXzJ85hY8Q7C0'
-        }
-    }
-    const url = `https://api.api-ninjas.com/v1/dadjokes?limit=1`;
+let joke = document.querySelector("#joke-display");
 
-    let dadJoke =await fetch(url,header);
+async function genrateJoke() {
+  joke.textContent = "";
+  joke.style.width = "5%";
+  joke.className = "loader";
+  const header = {
+    headers: {
+      "X-Api-Key": "LWmlLtnkcrKI6BsFlsmLRg==Z9EGXzJ85hY8Q7C0",
+    },
+  };
+  const url = `https://api.api-ninjas.com/v1/dadjokes/`;
 
-    console.log(dadJoke);
+  
+
+  try {
+    let dadJoke = await fetch(url, header);
+    let data = await dadJoke.json();
     
-
-    // let newJoke = await JSON.parse(dadJoke)
-
-    // joke.innerHTML = newJoke[0].joke;
-
-
-
-
+    joke.textContent = data[0].joke;
+  } catch (error) {
+    joke.textContent = `something went wrong 😕!`
+    console.log("error occured :", error.message);
+  }
+  joke.classList.remove("loader");
+  joke.style.width = "95%";
 }
 
-joke_button.addEventListener('click',genrateJoke)
+joke_button.addEventListener("click", genrateJoke);

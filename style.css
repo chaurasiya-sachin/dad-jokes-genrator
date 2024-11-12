@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Protest+Riot&display=swap');
+ 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100%;
+}
+
+.main{
+    max-width: 1080px;
+    height: 100vh;
+    width: 100%;
+    margin: 50px auto;
+    /* padding: 50px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main>h1{
+    text-align: center;
+    font-family: 'Protest Riot';
+    font-size: 5rem;
+    color: rgb(255, 86, 86);
+}
+
+.main-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin: 70px 0;
+}
+
+.main-content>button{
+    width: 250px;
+    height: 60px;
+    border-radius: 25px;
+    border: none;
+    font-size: 2rem;
+    font-family: 'protest riot';
+    color: white;
+    background-color: rgb(93, 93, 247);
+    /* box-shadow: -2px 5px rgb(213, 212, 212); */
+    cursor: pointer;
+    position: absolute;
+    top: -25px;
+}
+
+.main-content>button:hover{
+    background-color:rgb(54, 54, 253) ;
+    color: whitesmoke;
+    
+}
+
+.main-content>button:active{
+    box-shadow: -2px 5px rgb(213, 212, 212) ;
+}
+
+.joke-box{
+    width: 90%;
+    min-height: 20rem;
+    border-radius: 5px;
+    border: 3px solid rgb(212, 211, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Merienda' ;
+    font-size: 2rem;
+}
+
+#joke-display{
+    width: 95%;
+    text-align: center;
+    
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 50px;
+    /* height: 5px; */
+    aspect-ratio: 4;
+    --_g: no-repeat radial-gradient(circle closest-side,#4d4c4c 90%,#302f2f00);
+    background: 
+      var(--_g) 0%   50%,
+      var(--_g) 50%  50%,
+      var(--_g) 100% 50%;
+    background-size: calc(100%/3) 100%;
+    animation: l7 1s infinite linear;
+  }
+  @keyframes l7 {
+      33%{background-size:calc(100%/3) 0%  ,calc(100%/3) 100%,calc(100%/3) 100%}
+      50%{background-size:calc(100%/3) 100%,calc(100%/3) 0%  ,calc(100%/3) 100%}
+      66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0%  }
+  }
+
+
+  /* media quer for less 550px screen */
+
+  @media screen and (max-width:550px) {
+    .main>h1{
+        font-size: 3rem;
+    } 
+
+    .main-content>button{
+        width: 180px;
+        font-size: 1.5rem;
+    }
+
+    .joke-box{
+        display: 100%;
+        font-size: 1rem;
+    }
+  }
